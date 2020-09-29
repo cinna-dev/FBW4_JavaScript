@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery | Events</title>
+    <!-- jqery script works agnostic to the body code so it can be in the header -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+        // forcing the interpretor to wait untill the whole document is loaded
+        // clich is  like onclick
+        $(document).ready(function () {
+            $('#btn1').click(function () {
+                alert('Button 1 is clicked')
+            })
+        })
+    </script>
+    </script>
+    <style>
+        body {
+            font-size: 17px;
+            font-family: arial;
+            background: #f4f4f4;
+            line-height: 1.5em;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+
+        #container {
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>jQuery | Events</h1>
+        <div id="coords"></div>
+    </header>
+    <div id="container">
+        <h3>Mouse Events</h3>
+        <button id="btn1" class="btnClass">Button 1</button>
+        <button id="btn2">Button2</button>
+        <button id="btn3">Button3</button>
+        <button id="btn4">Button4</button>
+        <button id="btn5">Button5</button>
+        <button id="btn6">Button6</button>
+        <button id="btn7">Button7</button>
+        <p class="para1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam odit enim facilis itaque vero
+            tenetur fugit doloremque obcaecati quibusdam, tempora saepe eaque, maxime, dignissimos nihil quos neque
+            voluptatem at aut? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi ipsam cupiditate
+            optio sed. Cum placeat magnam, corporis dignissimos unde distinctio nostrum reprehenderit magni rerum
+            architecto, veritatis nam officiis, repellendus explicabo.</p>
+    </div>
+    <hr>
+    <div id="res"></div>
+    <form id="form">
+        <label for="form">Name</label><br>
+        <!-- input:text -->
+        <input type="text" name="name" id="name">
+        <label for="email">Email</label><br>
+        <input type="text" name="email" id="email">
+        <label for="gender">Gender</label><br>
+        <select name="gender" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // onclick alternative version
+        $('#btn1').on('click', function () {
+            $('.para1').hide()
+        })
+
+        $('#btn2').on('click', function () {
+            $('.para1').show()
+        })
+        $('#btn3').dblclick(function () {
+            $('.para1').toggle() // toggle hides and shows
+        })
+
+        $('#btn4').hover(function () {
+            $('.para1').toggle() // hover is like moussenter and mouseleave;
+        })
+
+
+        // mousedown / mouseup will hide para1 as long as yoy hold down button5
+        $('#btn5').on('mousedown', function () {
+            $('.para1').toggle() // hover is like moussenter and mouseleave;
+        })
+
+        $('#btn5').on('mouseup', function () {
+            $('.para1').toggle() // hover is like moussenter and mouseleave;
+        })
+
+        $('#btn6').click(function (e) {
+            alert(e.target.id)
+            alert(e.target.innerHTML)
+            alert(e.target.outerHTML)
+        })
+
+        $(document).on('mousemove', e => {
+            $('#coords').html('Coords: Y: ' + e.clientY + " X: " + e.clientX)
+        })
+        // focus when input is selected
+        $('input').focus(function (e) {
+            $(this).css('background', 'pink')
+        })
+
+        $('input').blur(function (e) {
+            // this = e.target
+            $(this).css('background', '')
+        })
+
+        $('input').keydown(function (e) {
+            // this = e.target
+            $('#res').html(`You typed letter ${e.target.value}`)
+        })
+
+        $('input').keyup(function (e) {
+            // this = e.target
+            $('#res').html(`You typed letter ${e.target.value}`)
+        })
+
+        $('select#gender').change(e => {
+            $('#res').html(`You selected : ${e.target.value}`)
+        })
+        $('#form').submit(e => {
+            e.preventDefault()
+            let name = $('#name').val();
+            let email = $('#email').val();
+            $('#res').html(`Your Name : ${name} and your Email is ${email}`)
+        })
+    </script>
+
+</body>
+
+</html>

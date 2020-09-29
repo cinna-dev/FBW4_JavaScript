@@ -1,0 +1,4 @@
+13:37:32	 From  Stefan M. : danke!
+13:38:37	 From  Stefan M. : 524288 is the Maximum Right?
+13:42:04	 From  Re7 : The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+13:42:54	 From  CleMeNs : if you want to install postman with ubuntu, you can find it in the ubuntu softwarecenter

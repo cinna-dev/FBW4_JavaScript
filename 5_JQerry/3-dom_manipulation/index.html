@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery | DOM Maniputaion</title>
+    <!-- jqery script works agnostic to the body code so it can be in the header -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+    <style>
+        body {
+            font-size: 17px;
+            font-family: arial;
+            background: #f4f4f4;
+            line-height: 1.5em;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+
+        .myClass {
+            color: blue;
+            background: black;
+        }
+
+        #container {
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>jQuery | DOM Maniputaion</h1>
+    </header>
+    <div id="container">
+        <button id="btn1">Button 1</button>
+        <p class="para1">This is a paragraph</p>
+        <p class="para2">This is another paragraph</p>
+        <div id="myDiv"></div>
+        <input type="text" id="newItem">
+        <ul id="list">
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+        </ul>
+        <ul id="list2">
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+        </ul>
+        <a href="http://google.com">Google</a>
+        <ul id="users"></ul>
+    </div>
+
+    <script>
+        //change first paragraph color into red
+        $('.para1').css('color', 'red')
+        //adding style to first paragraph
+        $('.para1').css({
+            color: 'red',
+            background: '#ccc'
+        })
+        //add a class to the second paragraph
+        $('.para2').addClass('myClass')
+        // remove class of paragraph two
+        $('.para2').removeClass('myClass')
+        // toggle Class of paragraph two
+        $('#btn1').click(() => {
+            $('.para2').toggleClass('myClass')
+        })
+        $('#myDiv').text('Hello World')
+        $('#myDiv').html('<h3>Hello World</h3>')
+        //if not directly in myDiv it will take the text of the firstChild
+        let t = $('#myDiv').text()
+        alert(t)
+        // append only works with innerHTML text
+        $('ul#list').append('<li>Appended List Item</li>')
+        $('ul#list').prepend('<li>Prepend List Item</li>')
+        // append element "para1" to "para2"
+        // appends element after textNode
+        $('.para1').appendTo('.para2')
+        // prepends element before the textNode
+        $('.para1').prependTo('.para2')
+        // its like siblings in vanilla
+        $('ul#list').before('<h4>Hello</h4>')
+        $('ul#list').after('<h4>World</h4>')
+        //removes all elements of ul ul#list
+        $('ul#list').empty()
+        //removes ul#list 
+        $('ul#list').detach()
+        //add attribute // target="_blank" opens link in new tab
+        $('a').attr('target', '_blank')
+        $('a').removeAttr('target')
+        let att = $('a').attr('href')
+        console.log(att)
+        // wraping h1 around "".para1"
+        // wraping  around each element one h1
+        $('.para1').wrap('<h1>')
+        // wraping one h1 around all p
+        $('p').wrapAll('<h1>')
+
+        $('#newItem').keyup(e => {
+            let code = e.which; //which referece to the button pressed // which of keycode
+            if (code == 13) {
+                $('ul#users').append(`<li>${e.target.value}</li>`)
+                e.preventDefault();
+            }
+        })
+
+        let fillArr = ['Philipp', 'Filiz', 'Andri', 'Safwan'];
+        $.each(fillArr, (i, item) => {
+            $('ul#users').append(`<li>${item}</li>`)
+        })
+
+        let newArr = $('ul#list2 li').toArray()
+        console.log(newArr)
+        //its like forEach but // each(arr,(i, item)=>{})
+        $.each(newArr, (i, val) => {
+            console.log(val.innerHTML, i)
+        })
+    </script>
+
+
+</body>
+
+</html>

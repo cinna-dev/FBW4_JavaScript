@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <style>
+        body {
+            background: orangered;
+            color: white;
+        }
+
+        p {
+            color: black;
+            text-align: center;
+        }
+
+        #container {
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 20px;
+            background: rgb(0, 137, 228);
+            padding: 30px;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-group {
+            display: block;
+        }
+
+        .input-group {
+            display: block;
+        }
+
+        hr {
+            border-style: dashed;
+        }
+
+        #btn {
+            border: none;
+            width: 100px;
+            height: 40px;
+            background: orangered;
+            margin: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1>Simple JavaScript Quiz</h1>
+            <p>test your nkowledge in JavaScript fundamentals</p>
+            <div id="outPut"></div>
+            <hr>
+        </header>
+        <form>
+            <div class="form-group">
+                <h2>1.In which HTML element do we put in JavaScript code?</h2>
+                <input id="js" name="0" type="radio">
+                <label for="js">a. &ltjs&gt </label>
+                <br>
+                <input id="script" name="0" type="radio">
+                <label for="script">b. &ltscript&gt </label>
+                <br>
+                <input id="body" name="0" type="radio">
+                <label for="body">c. &ltbody&gt </label>
+                <br>
+                <input id="link" name="0" type="radio">
+                <label for="link">d. &ltlink&gt </label>
+                <br>
+            </div>
+            <div class="form-group">
+                <h2>2.Which HTML attribute is used to reference an external JavaScript file?</h2>
+                <input id="src" name="1" type="radio">
+                <label for="src">a. src </label>
+                <br>
+                <input id="rel" name="1" type="radio">
+                <label for="rel">b. rel </label>
+                <br>
+                <input id="type" name="1" type="radio">
+                <label for="type">c. type </label>
+                <br>
+                <input id="href" name="1" type="radio">
+                <label for="href">d. href </label>
+                <br>
+            </div>
+            <div class="form-group">
+                <h2>3. How would you write "Hello" in an alert box</h2>
+                <input id="msg" name="2" type="radio">
+                <label for="msg">a. msg("Hello") </label>
+                <br>
+                <input id="alertBox" name="2" type="radio">
+                <label for="alertBox">b. alertBox("Hello") </label>
+                <br>
+                <input id="document" name="2" type="radio">
+                <label for="document">c. document.write("Hello") </label>
+                <br>
+                <input id="alert" name="2" type="radio">
+                <label for="alert">d. alert("Hello") </label>
+                <br>
+            </div>
+            <div class="form-group">
+                <h2>4. JavaScript is directly related to the "Java" programming language</h2>
+                <input id="true" name="3" type="radio">
+                <label for="true">a. true </label>
+                <br>
+                <input id="false" name="3" type="radio">
+                <label for="false">b. false </label>
+                <br>
+            </div>
+            <div class="form-group">
+                <h2>5. A variable in JavaScript must start with which special character</h2>
+                <input id="@" name="4" type="radio">
+                <label for="@">a. @ </label>
+                <br>
+                <input id="$" name="4" type="radio">
+                <label for="$">b. $ </label>
+                <br>
+                <input id="#" name="4" type="radio">
+                <label for="#">c. # </label>
+                <br>
+                <input id="no" name="4" type="radio">
+                <label for="no">d. No special Character </label>
+                <br>
+            </div>
+
+
+        </form>
+
+        <button type="submit" id="btn">Submit</button>
+        <footer></footer>
+    </div>
+
+
+    <script>
+        let ansArr = [2, 1, 4, 2, 4]
+
+        $('#btn').on('click', function () {
+            if ($('form input:checked').length !== 5) {
+                $('#outPut').html(`<h2 style="color: white">Please fill out all Questions</h2>`)
+            } else {
+                let score = 0
+                ansArr.forEach((item, i) => {
+                    let arr = $(`input[name=${i}]`)
+                    $.each(arr, (e, input) => {
+                        if (input.checked) {
+                            if (e === item - 1) {
+                                score++
+                            }
+                        }
+                    })
+                })
+                alert(`You answered ${score} out of 5 correctly`)
+                $('#outPut').html(
+                    `<h2 style="color: white">You answered <span style="color : black">${score}</span> out of <span style="color : black">5</span> correctly</h2>`
+                )
+            }
+        })
+    </script>
+</body>
+
+</html>

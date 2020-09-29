@@ -1,0 +1,26 @@
+[
+    {
+        "user" : "random",
+        "password" : "aa1",
+        "fistName" : "Peter",
+        "lastName" : "Griffin",
+        "phonenumber" : "222-545-4355",
+        "jobTitle" : "Factory-Worker"
+    },
+    {
+        "user" : "Super Mario",
+        "password" : "ab2",
+        "fistName" : "Mario",
+        "lastName" : "Unknown",
+        "phonenumber" : "123-455-6777",
+        "jobTitle" : "Plumber"
+    },
+    {
+        "user" : "RE2",
+        "password" : "cd3",
+        "fistName" : "Claire",
+        "lastName" : "Redfield",
+        "phonenumber" : "455-233-6776",
+        "jobTitle" : "Police Officer"
+    }
+]

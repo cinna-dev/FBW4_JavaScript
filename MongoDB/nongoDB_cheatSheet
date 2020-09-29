@@ -1,0 +1,38 @@
+//// Show LL DBs 
+show dbs
+
+////Show Current Database
+db
+
+////Create Or Switch to a Database
+use test1 -- switch to test1
+use newtest -- createing new data base called newtest
+
+////Create Collection
+db.createCollection('topics')      
+createing a new collection called topics
+
+////Show Collection
+show collections
+
+////Insert Row
+db.topics.insert({title:'html', time:'6 weeks',elements:['heding','structure']})
+
+////Insert Multiple Rows
+db.topics.insertMany([{},{}])
+
+////Get All Rows
+db.topic.find()
+// must be inside the right db
+db.topic.find().pretty()
+//shows them formated!
+
+////find One Row
+db.topics.findOne({title:"html"})
+//fincds the first row that includes the property in the argument area
+
+////Delete Databassse
+db.dropDatabase()
+
+
+//// "topics" is a showcase dummy for a collection!!!

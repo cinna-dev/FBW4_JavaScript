@@ -1,0 +1,60 @@
+<h1>{{title}}</h1>
+<form action="api/books" method="POST" id="book-form">
+    <div>
+        <label for="title">Title</label>
+        <input class="u-full-width" name="title" type="text">
+    </div>
+    <div>
+        <label for="author">Author</label>
+        <input class="u-full-width" name="author" type="text">
+    </div>
+    <div>
+        <label for="isbn">ISBN#</label>
+        <input class="u-full-width" name="isbn" type="text">
+    </div>
+    <div>
+        <input class="u-full-width" value="Submit" type="submit"></input>
+    </div>
+</form>
+
+<table class="u-full-width">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody id="book-list">
+        {{#each books}}
+        <tr>
+            <td class="">{{this.title}}</td>
+            <td class="">{{this.author}}</td>
+            <td class="">{{this.isbn}}</td>
+            <td class="">
+                <input onclick="deletePost(event,{{this.isbn}})" class=" btn btn-light mt-4" type="button"
+                    value="Delete" />
+            </td>
+        </tr>
+        </tr>
+        {{/each }}
+    </tbody>
+
+</table>
+<a href="/api/books" class="btn btn-light mt-4">Visit JSON</a>
+<script>
+
+    function deletePost(e, isbn) {
+        fetch(`http://localhost:4040/api/books/${isbn}`, {
+            method: 'DELETE'
+        }).then(e.target.closest('tr').remove())
+    }
+</script>
+
+{{!-- function deletePost(isbn) {
+        const req = new XMLHttpRequest()
+        req.open('DELETE', `http://localhost:4040/api/books/${isbn}`)
+        req.send()
+    } --}}

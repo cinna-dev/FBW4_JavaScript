@@ -1,0 +1,54 @@
+//console.log('Hello guys from fbw4')
+
+//import {person} from './person';  // not supported in node.js
+
+//const participant =  require('./person')
+
+/* const User = require('./user') // the require() is commonJS script
+
+const participant = new User('Clemens', 40)
+
+participant.addAuthority('admin')
+console.log(participant) */
+
+//participant.introMe()
+
+
+
+/* const Logger = require('./logger')
+
+const dciLog = new Logger();
+
+
+dciLog.on('wrong', data => {
+    console.log('Call Listener', data)
+})
+
+dciLog.on('success', data => {
+    console.log('Call Listener', data)
+})
+
+dciLog.log('fbw3_final_presentation', 'tech-error')
+dciLog.log('fbw4_final_presentation', 'heroes') */
+
+
+/* 
+const Attendency = require('./attendency')
+
+const dciattendence = new Attendency();
+
+
+dciattendence.on('fail', data => {
+    console.log('Call Listener', data)
+})
+
+dciattendence.on('success', data => {
+    console.log('Call Listener', data)
+})
+
+dciattendence.log('fbw4_attendency', 'anwesend')
+dciattendence.log('fbw4_attendency', 'not_anwesend') */
+
+
+
+

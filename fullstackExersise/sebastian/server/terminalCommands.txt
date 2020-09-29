@@ -1,0 +1,5 @@
+npx express-generator . --no-view
+
+sudo npm i -g nodemon
+
+npm i mongoose dotenv cors

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./my.css">
+  <title>Keyboard Control Panel</title>
+</head>
+<body>
+  <h1>Keyboard Control Panel</h1>
+  Prevent default for: <input type="checkbox" name="" id="keydownDefault"><label for="keydownDefault">keydown</label><input type="checkbox" name="" id="keyupDefault"><label for="keyupDefault">keyup</label>
+  <br>
+  <br>
+  Ignore:<input type="checkbox" name="" id="keydownIgnore"><label for="keydownIgnore">keydown</label><input type="checkbox" name="" id="keyupIgnore"><label for="keyupIgnore">keyup</label>
+  <br>
+  <br>
+  Focus on th input field and press a key.
+  <br>
+  <br>
+  <input type="text" style="width:100%" placeholder="Press keys here" id="myInput">
+  <br>
+  <textarea name="" id="mytexArea" cols="30" rows="15" style="width:100% ; border:1px solid black"></textarea>
+  <br>
+  <button id="Clear">Clear</button>
+  <script src="app.js"></script>
+</body>
+</html>

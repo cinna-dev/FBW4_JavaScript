@@ -1,0 +1,31 @@
+<h1>{{title}}</h1>
+<div class="container">
+    <div class="row ">
+
+        {{#each carts}}
+        <div class=" card col-3 m-4" style="width: 18rem;">
+            <img src={{this.img}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{this.name}} </h5>
+                <h6 class="card-text">{{this.price}}</h6>
+                <p class="card-text">{{this.description}}</p>
+                <a onclick="deletePost({{this.id}})" class=" btn btn-light mt-4" type="button" value="Delete">Delete</a>
+            </div>
+        </div>
+
+        {{/each }}
+    </div>
+</div>
+
+<a href="/api/carts" class="btn btn-light mt-4">Visit JSON</a>
+
+<script>
+
+    function deletePost(id) {
+        fetch(`http://localhost:8080/api/carts/${id}`, {
+            method: 'DELETE'
+        })
+            //.then(window.location.reload(true))
+            .then(location.reload())
+    }
+</script>

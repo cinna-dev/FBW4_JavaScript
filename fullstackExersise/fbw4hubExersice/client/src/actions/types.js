@@ -1,0 +1,2 @@
+export const CREATE_PROFILE = 'CREATE_PROFILE'
+export const SET_ALERT = 'SET_ALERT'

@@ -1,0 +1,22 @@
+/////////  Step 1  /////////////
+//createing a basic server
+const http = require('http')
+
+
+const server = http.createServer((req, res) => {
+    console.log(req.url)
+    res.writeHead(200, {
+        'Content-type': 'text/html'
+    })
+    if (req.url === '/') {
+        res.end('<h1>Stay at Home</h1>')
+    } else {
+        res.end('<h1>This is about our app</h1>')
+    }
+}) // req.url with http://localhost:7000/about === /about
+
+const PORT = process.env.PORT || 7000;
+server.listen(PORT, () => {
+    console.log(`Server is running on ${PORT} `);
+})
+//nodemon will watch your code and update the server
